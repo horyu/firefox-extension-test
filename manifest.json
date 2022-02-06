@@ -1,0 +1,58 @@
+{
+  "manifest_version": 2,
+  "name": "Firefox-Extension-Test",
+  "version": "1.0",
+  "description": "Firefox拡張テスト",
+  "background": {
+    "page": "src/html/background.html"
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "icons/16x16.png",
+      "32": "icons/32x32.png",
+      "48": "icons/48x48.png",
+      "96": "icons/96x96.png",
+      "128": "icons/128x128.png"
+    },
+    "default_title": "browser_action>default_title",
+    "default_popup": "src/html/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*"
+      ],
+      "exclude_globs": [
+        "https://www.bing.com/*"
+      ],
+      "js": [
+        "src/js/content_script_wrapper.js"
+      ],
+      "run_at": "document_end"
+    },
+    {
+      "matches": [
+        "https://www.bing.com/*"
+      ],
+      "js": [
+        "src/js/bing_wrapper.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "icons": {
+    "16": "icons/16x16.png",
+    "32": "icons/32x32.png",
+    "48": "icons/48x48.png",
+    "96": "icons/96x96.png",
+    "128": "icons/128x128.png"
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "alarms"
+  ],
+  "options_ui": {
+    "page": "src/html/options.html"
+  }
+}
