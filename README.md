@@ -8,7 +8,7 @@
 - bingのコンテントスクリプト
   - browser.runtime.sendMessage でページ情報をバックグラウンドに送る
 - ポップアップ
-  - browser.runtime.onMessage.addListener でアクティブのタブIDをバックグラウンドに伝える
+  - browser.runtime.sendMessage でアクティブのタブIDをバックグラウンドに伝える
 - バックグラウンド
   - bingコンテントスクリプトから受け取り、ポップアップで指定されたタブIDに送る
   - 指定されたタブIDから受け取り完了報告を受け取ったら送信をやめる
